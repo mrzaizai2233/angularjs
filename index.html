@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" ng-app="zaa">
+
+<head>
+    <title>My First AngularJS App</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/angular.min.js"></script>
+    <script>
+        var zaa = angular.module("zaa",[])
+        zaa.controller('IndexController',['$scope',function IndexController($scope) {
+            $scope.name = "hello"
+            $scope.products = [
+                {
+                    name:'iphone 4s',
+                    price:50
+                },
+                {
+                    name:'iphone 5s',
+                    price:35
+                }
+            ]
+        }])
+        zaa.component('inputGroup',{
+            templateUrl:'components/input-group.template.html',
+            bindings: {
+                name: '<',
+                onDelete: '&',
+                onUpdate: '&'
+            },
+            controller:function ($scope) {
+
+            }
+        })
+    </script>
+    <script src="components/heroList.js"></script>
+</head>
+
+<body>
+
+   <hero-list></hero-list>
+
+</body>
+
+</html>
